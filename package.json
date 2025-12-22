@@ -1,0 +1,10 @@
+{
+  "name": "@beaconlabs-io/evidence",
+  "version": "1.0.0",
+  "description": "Collection of evidence.",
+  "license": "MIT",
+  "author": "Beacon Labs",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {}
+}
