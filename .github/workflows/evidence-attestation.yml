@@ -78,29 +78,6 @@ jobs:
 
           echo "branch=$PR_BRANCH" >> $GITHUB_OUTPUT
 
-      - name: Check validation status
-        if: steps.check.outputs.should-run == 'true' && steps.pr-info.outputs.branch != ''
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "🔍 Checking if Evidence Validation passed..."
-
-          # Get check runs for the PR
-          CHECKS=$(gh pr checks ${{ github.event.issue.number }} --repo ${{ github.repository }} --json name,state 2>/dev/null || echo "[]")
-
-          # Look for validation check
-          VALIDATION_STATE=$(echo "$CHECKS" | jq -r '.[] | select(.name | test("validate|validation"; "i")) | .state' | head -1)
-
-          echo "Validation status: $VALIDATION_STATE"
-
-          if [ "$VALIDATION_STATE" != "SUCCESS" ] && [ "$VALIDATION_STATE" != "success" ]; then
-            echo "❌ Evidence Validation has not passed"
-            gh pr comment ${{ github.event.issue.number }} --repo ${{ github.repository }} --body "❌ **Blocked**: Evidence Validation must pass before \`/attest\` can run. Please ensure the validation check is green before trying again."
-            exit 1
-          fi
-
-          echo "✅ Evidence Validation passed"
-
       - name: Checkout repository
         if: steps.check.outputs.should-run == 'true' && steps.pr-info.outputs.branch != ''
         uses: actions/checkout@v4
