@@ -4,8 +4,6 @@
   "description": "Collection of evidence.",
   "license": "MIT",
   "author": "Beacon Labs",
-  "type": "module",
-  "main": "index.js",
   "scripts": {
     "prepare": "husky",
     "validate": "bun run .github/scripts/validate-evidence.ts",
