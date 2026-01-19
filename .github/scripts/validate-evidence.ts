@@ -42,7 +42,7 @@ function validateEvidenceFile(filePath: string): string[] {
  */
 function getChangedEvidenceFiles(): string[] {
   try {
-    const baseBranch = process.env.GITHUB_BASE_REF || process.env.BASE_BRANCH || "dev";
+    const baseBranch = process.env.GITHUB_BASE_REF || process.env.BASE_BRANCH || "main";
 
     // Sanitize branch name to prevent command injection
     const safeBranch = baseBranch.replace(/[^a-zA-Z0-9_/-]/g, "");

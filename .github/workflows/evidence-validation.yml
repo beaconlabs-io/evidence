@@ -14,10 +14,6 @@ jobs:
   validate:
     name: Validate Evidence Files
     runs-on: ubuntu-latest
-    # Skip draft PRs and dev→main PRs
-    if: |
-      github.event.pull_request.draft == false &&
-      github.head_ref != 'dev'
 
     steps:
       - name: Checkout repository
