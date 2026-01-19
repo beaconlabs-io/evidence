@@ -158,7 +158,15 @@ jobs:
 
       - name: Install dependencies
         run: |
-          bun install @ethereum-attestation-service/eas-sdk ethers dotenv gray-matter
+          bun install
+          bun install @ethereum-attestation-service/eas-sdk ethers dotenv
+
+      - name: Validate evidence files
+        env:
+          GITHUB_BASE_REF: main
+        run: |
+          echo "🔍 Validating evidence files..."
+          bun run .github/scripts/validate-evidence.ts
 
       - name: Process and upload evidence files to IPFS
         env:
