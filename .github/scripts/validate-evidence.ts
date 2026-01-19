@@ -68,7 +68,7 @@ function getChangedEvidenceFiles(): string[] {
 
     return changedFiles
       .split("\n")
-      .filter((file) => file.match(/^contents\/evidence\/[^/]+\.mdx$/))
+      .filter((file) => file.match(/^evidence\/[^/]+\.mdx$/))
       .map((file) => file.trim())
       .filter(Boolean);
   } catch (error) {

@@ -2,8 +2,8 @@ name: Evidence Validation
 
 on:
   pull_request:
-    branches: [dev]
-    paths: ["contents/evidence/*.mdx"]
+    branches: [main]
+    paths: ["evidence/*.mdx"]
     types: [opened, synchronize, reopened, ready_for_review]
 
 permissions:

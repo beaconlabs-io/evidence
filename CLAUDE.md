@@ -49,7 +49,7 @@ BASE_BRANCH=dev bun run .github/scripts/validate-evidence.ts
 
 ## CI/CD Workflow
 
-1. **Evidence Validation** - Runs automatically on PRs targeting `dev` that modify `contents/evidence/*.mdx`
+1. **Evidence Validation** - Runs automatically on PRs targeting `dev` that modify `evidence/*.mdx`
 2. **Evidence Attestation** - Triggered by `/attest` comment on approved PRs (requires write permission)
    - Uploads evidence content to IPFS via Pinata
    - Creates EAS attestation on Base Sepolia
