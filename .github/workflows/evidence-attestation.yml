@@ -118,7 +118,7 @@ jobs:
           git fetch origin dev
 
           # Get changed evidence files
-          CHANGED_FILES=$(git diff --name-only origin/dev | grep "^contents/evidence/[^/]*\.mdx$" || true)
+          CHANGED_FILES=$(git diff --name-only origin/dev | grep "^evidence/[^/]*\.mdx$" || true)
 
           if [ -z "$CHANGED_FILES" ]; then
             echo "❌ No evidence files found in PR"
@@ -132,7 +132,7 @@ jobs:
           COUNT=0
           while IFS= read -r file; do
             if [ -n "$file" ]; then
-              RELATIVE_PATH=$(echo "$file" | sed 's|^contents/evidence/||')
+              RELATIVE_PATH=$(echo "$file" | sed 's|^evidence/||')
               if [ -n "$EVIDENCE_PATHS" ]; then
                 EVIDENCE_PATHS="$EVIDENCE_PATHS,$RELATIVE_PATH"
               else
@@ -196,7 +196,7 @@ jobs:
             IFS=',' read -ra PATHS <<< "$EVIDENCE_PATHS"
             for relative_path in "${PATHS[@]}"; do
               if [ -n "$relative_path" ]; then
-                full_path="contents/evidence/$relative_path"
+                full_path="evidence/$relative_path"
                 echo ""
                 echo "🔄 Processing: $relative_path"
 
@@ -329,12 +329,12 @@ jobs:
                     const result = results[i];
                     console.log(\`Processing attestation \${i + 1}/\${results.length} for \${result.relativePath}\`);
 
-                    const mdxPath = \`contents/evidence/\${result.relativePath}\`;
+                    const mdxPath = \`evidence/\${result.relativePath}\`;
                     const mdxContent = fs.readFileSync(mdxPath, 'utf8');
                     const { data: frontmatter } = matter(mdxContent);
 
                     const evidenceId = path.basename(result.relativePath, '.mdx');
-                    const deploymentPath = \`contents/deployments/\${evidenceId}.json\`;
+                    const deploymentPath = \`deployments/\${evidenceId}.json\`;
                     let refUID = '';
 
                     if (fs.existsSync(deploymentPath)) {
@@ -399,7 +399,7 @@ jobs:
 
                 for (const result of results) {
                   const evidenceId = path.basename(result.relativePath, '.mdx');
-                  const deploymentPath = \`contents/deployments/\${evidenceId}.json\`;
+                  const deploymentPath = \`deployments/\${evidenceId}.json\`;
 
                   let existingData = {};
                   if (fs.existsSync(deploymentPath)) {
@@ -465,12 +465,12 @@ jobs:
           git checkout "$PR_BRANCH"
 
           # Check if there are changes
-          if git diff --quiet contents/deployments/; then
+          if git diff --quiet deployments/; then
             echo "No changes to deployment files"
             exit 0
           fi
 
-          git add contents/deployments/
+          git add deployments/
           git commit -m "chore(actions): add deployment files for evidence attestations"
           git push origin "$PR_BRANCH"
 
