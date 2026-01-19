@@ -60,10 +60,10 @@ jobs:
           echo "Base Branch: $BASE_BRANCH"
           echo "PR State: $PR_STATE"
 
-          # Skip if PR is not targeting dev
-          if [ "$BASE_BRANCH" != "dev" ]; then
-            echo "❌ PR is not targeting dev branch"
-            gh pr comment ${{ github.event.issue.number }} --repo ${{ github.repository }} --body "❌ **Skipped**: Attestation only runs on PRs targeting \`dev\` branch"
+          # Skip if PR is not targeting main
+          if [ "$BASE_BRANCH" != "main" ]; then
+            echo "❌ PR is not targeting main branch"
+            gh pr comment ${{ github.event.issue.number }} --repo ${{ github.repository }} --body "❌ **Skipped**: Attestation only runs on PRs targeting \`main\` branch"
             echo "branch=" >> $GITHUB_OUTPUT
             exit 0
           fi
@@ -114,11 +114,11 @@ jobs:
         run: |
           echo "🔍 Detecting evidence files in PR..."
 
-          # Fetch dev branch for comparison
-          git fetch origin dev
+          # Fetch main branch for comparison
+          git fetch origin main
 
           # Get changed evidence files
-          CHANGED_FILES=$(git diff --name-only origin/dev | grep "^evidence/[^/]*\.mdx$" || true)
+          CHANGED_FILES=$(git diff --name-only origin/main | grep "^evidence/[^/]*\.mdx$" || true)
 
           if [ -z "$CHANGED_FILES" ]; then
             echo "❌ No evidence files found in PR"

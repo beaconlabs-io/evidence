@@ -18,7 +18,7 @@ deployments/      # JSON deployment records with IPFS hashes and attestation UID
     pinata.js     # IPFS upload via Pinata
     validate-evidence.ts  # Zod-based evidence validation
   workflows/
-    evidence-validation.yml   # PR validation on `dev` branch
+    evidence-validation.yml   # PR validation on `main` branch
     evidence-attestation.yml  # Attestation via `/attest` command
 ```
 
@@ -44,12 +44,12 @@ Evidence files are MDX with YAML frontmatter. Required fields:
 bun install
 
 # Run evidence validation locally
-BASE_BRANCH=dev bun run .github/scripts/validate-evidence.ts
+BASE_BRANCH=main bun run .github/scripts/validate-evidence.ts
 ```
 
 ## CI/CD Workflow
 
-1. **Evidence Validation** - Runs automatically on PRs targeting `dev` that modify `evidence/*.mdx`
+1. **Evidence Validation** - Runs automatically on PRs targeting `main` that modify `evidence/*.mdx`
 2. **Evidence Attestation** - Triggered by `/attest` comment on approved PRs (requires write permission)
    - Uploads evidence content to IPFS via Pinata
    - Creates EAS attestation on Base Sepolia
