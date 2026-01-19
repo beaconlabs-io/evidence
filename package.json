@@ -6,14 +6,23 @@
   "author": "Beacon Labs",
   "type": "module",
   "main": "index.js",
+  "scripts": {
+    "prepare": "husky",
+    "validate": "bun run .github/scripts/validate-evidence.ts",
+    "typecheck": "tsc --noEmit"
+  },
   "devDependencies": {
     "@types/node": "^22.0.0",
     "bun-types": "^1.0.0",
+    "husky": "^9.1.7",
     "typescript": "^5.0.0"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
     "lint-staged": "^16.2.7",
     "zod": "^3.23.0"
+  },
+  "lint-staged": {
+    "*.ts": "tsc --noEmit"
   }
 }
