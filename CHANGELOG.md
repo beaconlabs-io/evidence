@@ -1,5 +1,14 @@
 # @beaconlabs-io/evidence
 
+## 1.1.2
+
+### Patch Changes
+
+- [`64666bf`](https://github.com/beaconlabs-io/evidence/commit/64666bf42a4d33526b31e033805ca2c7a90fc2ab) Thanks [@tnkshuuhei](https://github.com/tnkshuuhei)! - fix(ci): enable GitHub Releases creation and prevent duplicate workflow runs
+
+  - Change publish command from `npm publish` to `bunx changeset publish` to enable automatic GitHub Releases creation
+  - Add `cancel-in-progress: true` to concurrency settings to prevent duplicate workflow executions
+
 ## 1.1.1
 
 ### Patch Changes
