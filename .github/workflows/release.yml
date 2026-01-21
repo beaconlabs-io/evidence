@@ -4,7 +4,9 @@ on:
   push:
     branches: [main]
 
-concurrency: ${{ github.workflow }}-${{ github.ref }}
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   release:
@@ -37,7 +39,7 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: npm publish --access public --provenance
+          publish: bunx changeset publish
           version: bunx changeset version
           title: "chore: version packages"
           commit: "chore: version packages"
