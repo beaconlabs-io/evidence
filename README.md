@@ -1,5 +1,8 @@
 # @beaconlabs-io/evidence
 
+[![npm version](https://img.shields.io/npm/v/@beaconlabs-io/evidence)](https://www.npmjs.com/package/@beaconlabs-io/evidence)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A collection of structured research evidence with Zod schemas and TypeScript types for the Beacon Labs MUSE platform.
 
 ## Installation
@@ -102,15 +105,15 @@ if (evidence) {
 ### Types
 
 | Type                  | Description                                                          |
-| --------------------- | -------------------------------------------------------------------- | --- | --- | ---- | ---- | ---------------- |
+| --------------------- | -------------------------------------------------------------------- |
 | `Evidence`            | Complete evidence type (frontmatter + deployment metadata)           |
 | `EvidenceFrontmatter` | MDX frontmatter fields                                               |
 | `EvidenceResult`      | Intervention outcome (`{ intervention, outcome_variable, outcome }`) |
 | `EvidenceCitation`    | Citation reference (`{ name, type?, src? }`)                         |
 | `EvidenceDeployment`  | Deployment metadata (`{ attestationUID, ipfsHash, timestamp, ... }`) |
 | `BundledEvidence`     | Bundled content (`{ frontmatter, content, raw }`)                    |
-| `StrengthLevel`       | `"0"                                                                 | "1" | "2" | "3"  | "4"  | "5"` (SMS scale) |
-| `OutcomeEffect`       | `"N/A"                                                               | "+" | "-" | "+-" | "!"` |
+| `StrengthLevel`       | `"0" \| "1" \| "2" \| "3" \| "4" \| "5"` (SMS scale)                 |
+| `OutcomeEffect`       | `"N/A" \| "+" \| "-" \| "+-" \| "!"`                                 |
 
 ### Zod Schemas
 
@@ -173,7 +176,6 @@ datasets:
 - Finding 1
 - Finding 2
 ## Background
-
 ```
 
 ### Outcome Effects
