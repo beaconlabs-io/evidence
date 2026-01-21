@@ -5,6 +5,12 @@
 /src/content/evidence.ts
 /src/content/deployments.ts
 
+# Generated types (CI uses bun to run TypeScript directly)
+types/*.js
+types/*.js.map
+types/*.d.ts
+types/*.d.ts.map
+
 env
 .env.local
 

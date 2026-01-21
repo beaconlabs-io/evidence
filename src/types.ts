@@ -36,9 +36,15 @@ export const EvidenceFrontmatterSchema = z.object({
   evidence_id: z.string().min(1, "Evidence ID is required"),
   title: z.string().min(1, "Title is required"),
   author: z.string().min(1, "Author is required"),
-  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Date must be in YYYY-MM-DD format"),
-  citation: z.array(EvidenceCitationSchema).min(1, "At least one citation is required"),
-  results: z.array(EvidenceResultSchema).min(1, "At least one result is required"),
+  date: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/, "Date must be in YYYY-MM-DD format"),
+  citation: z
+    .array(EvidenceCitationSchema)
+    .min(1, "At least one citation is required"),
+  results: z
+    .array(EvidenceResultSchema)
+    .min(1, "At least one result is required"),
   strength: z.enum(STRENGTH_LEVELS, {
     message: "Strength must be a level from 0 to 5 (SMS scale)",
   }),
@@ -67,7 +73,9 @@ export const EvidenceDeploymentHistorySchema = z.object({
   size: z.number(),
 });
 
-export type EvidenceDeploymentHistory = z.infer<typeof EvidenceDeploymentHistorySchema>;
+export type EvidenceDeploymentHistory = z.infer<
+  typeof EvidenceDeploymentHistorySchema
+>;
 
 export const EvidenceDeploymentSchema = z.object({
   evidenceId: z.string(),
@@ -90,7 +98,9 @@ export type EvidenceDeployment = z.infer<typeof EvidenceDeploymentSchema>;
 
 export const EvidenceSchema = EvidenceFrontmatterSchema.extend({
   attestationUID: z
-    .custom<`0x${string}`>((val) => typeof val === "string" && val.startsWith("0x"))
+    .custom<`0x${string}`>(
+      (val) => typeof val === "string" && val.startsWith("0x")
+    )
     .optional(),
   ipfsHash: z.string().optional(),
   timestamp: z.string().optional(),
