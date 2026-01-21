@@ -1,4 +1,11 @@
 /node_modules
+/dist
+
+# Generated content (rebuilt on npm publish)
+/src/content/evidence.ts
+/src/content/deployments.ts
 
 env
 .env.local
+
+.serena
