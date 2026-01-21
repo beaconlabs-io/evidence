@@ -103,7 +103,7 @@ BASE_BRANCH=main bun run .github/scripts/validate-evidence.ts
 
 - **EAS Contract**: `0x4200000000000000000000000000000000000021` (Base Sepolia)
 - **Schema UID**: `0xaec128d2b0ed11303f1d7ca6c0a7387607b61f1181c36b378022b4fda73df68f`
-- **Runtime**: Bun + Node.js 22.x
+- **Runtime**: Bun + Node.js 24.x
 - **Validation**: Zod schema via `EvidenceFrontmatterSchema` from `src/types.ts`
 
 ## Required Secrets (GitHub Actions)
