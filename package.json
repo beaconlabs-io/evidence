@@ -1,6 +1,6 @@
 {
   "name": "@beaconlabs-io/evidence",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Evidence collection with Zod schemas and content for Beacon Labs MUSE platform",
   "license": "MIT",
   "author": "Beacon Labs",
