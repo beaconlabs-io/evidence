@@ -1,5 +1,20 @@
 # @beaconlabs-io/evidence
 
+## 1.1.3
+
+### Patch Changes
+
+- [#10](https://github.com/beaconlabs-io/evidence/pull/10) [`c65f138`](https://github.com/beaconlabs-io/evidence/commit/c65f138dce4054ebfa8e45d99d6a5c642ad4bc50) Thanks [@tnkshuuhei](https://github.com/tnkshuuhei)! - Enforce field length limits in evidence frontmatter schema
+
+  - Added max character constraints to Zod schema:
+    - `title`: 200 chars
+    - `author`: 100 chars
+    - `intervention`: 80 chars
+    - `outcome_variable`: 50 chars
+  - Updated all evidence files to comply with new limits
+  - Fixed author attribution to use actual paper authors
+  - Replaced temporary SSRN download URL with permanent abstract URL
+
 ## 1.1.2
 
 ### Patch Changes
