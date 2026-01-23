@@ -154,8 +154,8 @@ title: "Effect of X on Y"
 author: "BeaconLabs"
 date: "2024-01-01"
 results:
-  - intervention: "Description of intervention"
-    outcome_variable: "What was measured"
+  - intervention: "Description of intervention" # max 80 chars
+    outcome_variable: "What was measured" # max 50 chars
     outcome: "+" # N/A, +, -, +-, !
 strength: "3" # 0-5 (Maryland SMS scale)
 methodologies:
@@ -177,6 +177,17 @@ datasets:
 - Finding 2
 ## Background
 ```
+
+### Field Length Limits
+
+| Field              | Max Length | Description                    |
+| ------------------ | ---------- | ------------------------------ |
+| `title`            | 200 chars  | Research title                 |
+| `author`           | 100 chars  | Author name                    |
+| `intervention`     | 80 chars   | Brief description of treatment |
+| `outcome_variable` | 50 chars   | Measured variable name         |
+
+> **Note:** Keep frontmatter fields concise. Detailed explanations belong in the MDX body content.
 
 ### Outcome Effects
 

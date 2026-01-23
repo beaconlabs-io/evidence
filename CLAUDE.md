@@ -60,19 +60,24 @@ These files are auto-generated and should not be manually edited:
 Evidence files are MDX with YAML frontmatter. Required fields:
 
 - `evidence_id`: Unique identifier (e.g., "00")
-- `title`: Research title
+- `title`: Research title (**max 200 chars**)
 - `results`: Array of intervention outcomes
+  - `intervention`: Brief description of treatment (**max 80 chars**)
+  - `outcome_variable`: Measured variable name (**max 50 chars**)
+  - `outcome`: Effect type (`N/A`, `+`, `-`, `+-`, `!`)
 - `strength`: Evidence strength rating (0-5, Maryland SMS scale)
 - `methodologies`: Array of research methodologies
 - `citation`: Array of citation objects with `type`, `name`, `src`
 - `date`: Publication date (YYYY-MM-DD format)
-- `author`: Author name
+- `author`: Author name (**max 100 chars**)
 
 Optional fields:
 
 - `version`: Semantic version
 - `datasets`: Array of dataset descriptions
 - `tags`: Array of categorization tags
+
+**Important:** Keep frontmatter fields concise. Detailed explanations belong in the MDX body content (Background, Analysis Method sections).
 
 ## Development Commands
 
