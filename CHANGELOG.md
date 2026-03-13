@@ -1,5 +1,11 @@
 # @beaconlabs-io/evidence
 
+## 1.1.4
+
+### Patch Changes
+
+- [#13](https://github.com/beaconlabs-io/evidence/pull/13) [`fb914de`](https://github.com/beaconlabs-io/evidence/commit/fb914de83c6ff6eb4bdbe0a692c8aa2b4513e815) Thanks [@tnkshuuhei](https://github.com/tnkshuuhei)! - Add .js file extensions to relative imports for proper ESM module resolution
+
 ## 1.1.3
 
 ### Patch Changes
