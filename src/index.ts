@@ -1,5 +1,5 @@
 // Re-export all types
-export * from "./types";
+export * from "./types.js";
 
 // Re-export content accessors
-export * from "./content";
+export * from "./content/index.js";
